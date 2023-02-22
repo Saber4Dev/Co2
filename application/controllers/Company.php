@@ -1,51 +1,76 @@
 <?php
+
 // application/controllers/Company.php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Company extends CI_Controller {
 
-    // public function __construct() {
-    //     parent::__construct();
-    //     $this->load->model('Company_model');
-
-    // }
-
-
-
-    public function index()
-    {
-        // $this->load->model('Company_model');
-        // $company_data = $this->Company_model->get_company_data();
-
-        // load the Company_model
-          $this->load->model('Company_model');
-
-         // get the company names
-        $data['company_data'] = $this->Company_model->get_company_data();
-         
-         // pass the company names to the view
-        //$data['company_names'] = $company_names;
+    public function load_common_views($view_name, $data) {
 
         // load the header template
-        $this->load->view('templates/header');
-        
-        // load the index view and pass the data
-        $this->load->view('index', $data);
-        
+        $this->load->view('templates/header', $data);
+
+        // load the topbar template
+        $this->load->view('templates/topbar');
+
+        // load the navbar template
+        $this->load->view('templates/navbar');
+
+        // load the view for the requested page
+        $this->load->view($view_name, $data);
+
         // load the footer template
         $this->load->view('templates/footer');
-       
+
+        // load the script template
+        $this->load->view('templates/script');
+    }
+
+    public function index() {
+        // load the Company_model
+        $this->load->model('Company_model');
+
+        // get the company data
+        $data['company_data'] = $this->Company_model->get_company_data();
+
+        // set the title for the page
+        $data['title'] = 'Home page';
+
+        // load common views
+        $this->load_common_views('index', $data);
+    }
+
+    public function about() {
+        // load the Company_model
+        $this->load->model('Company_model');
+
+        // get the company data
+        $data['company_data'] = $this->Company_model->get_company_data();
+
+        // set the title for the page
+        $data['title'] = 'About us';
+
+        // load common views
+        $this->load_common_views('about', $data);
     }
 
     public function services($id) {
+        // load the Company_model
+        $this->load->model('Company_model');
+
+        // get the company data
+        $data['company_data'] = $this->Company_model->get_company_data();
+
+        // get the services for the requested company
         $data['services'] = $this->Company_model->get_company_services($id)->result();
-        $this->load->view('templates/header');
-        $this->load->view('services', $data);
-        $this->load->view('templates/footer');
+
+        // set the title for the page
+        $data['title'] = 'Services';
+
+        // load common views
+        $this->load_common_views('service', $data);
     }
-
-
-
 }
+
 

@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?= isset($PageTitle) ? $PageTitle : "Default Title"?></title>
+
+    <!-- Custom Page header -->
+    <title><?php echo $title; ?></title>
+
+
     <!-- Additional tags here -->
-    <?php if (function_exists('customPageHeader')){
-      customPageHeader();
-    }?>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

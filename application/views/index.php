@@ -1,18 +1,4 @@
 <?php
-
-$PageTitle="Home Page";
-
-function customPageHeader()
-
-{
-    ?>
-  <!--Arbitrary HTML Tags-->
-<?php }
-
-
-  $this->load->view('templates/topbar');
-  $this->load->view('templates/navbar');
-
 ?>
 
 <!-- body contents go here -->
