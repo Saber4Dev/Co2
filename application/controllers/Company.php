@@ -63,13 +63,13 @@ class Company extends CI_Controller {
         $data['company_data'] = $this->Company_model->get_company_data();
 
         // get the services for the requested company
-        $data['services'] = $this->Company_model->get_company_services($id)->result();
+        // $data['services'] = $this->Company_model->get_company_services($id)->result();
 
         // set the title for the page
         $data['title'] = 'Services';
 
         // load common views
-        $this->load_common_views('service', $data);
+        $this->load_common_views('services', $data);
     }
 }
 
