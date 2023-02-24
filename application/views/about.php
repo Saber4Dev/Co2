@@ -116,10 +116,10 @@ print_r($data);
                             <h5><?php echo $company_team[$i]['name']; ?></h5>
                             <span class="text-primary"><?php echo $company_team[$i]['role']; ?></span>
                             <ul class="team-social">
-                                <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
-                                <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['fb_profile']; ?>"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['twitter_profile']; ?>"><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['instagram_profile']; ?>"><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['linkedin_profile']; ?>"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
                     </div>

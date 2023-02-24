@@ -60,9 +60,6 @@ class Company extends CI_Controller {
     }
     
 
-
-    
-
     public function services($id = 1)
     {
     // load the Company_model
