@@ -44,33 +44,45 @@ class Company extends CI_Controller {
     public function about() {
         // load the Company_model
         $this->load->model('Company_model');
-
+    
         // get the company data
         $data['company_data'] = $this->Company_model->get_company_data();
-
+    
+        // check if company_id exists in the company_data
+        if(isset($data['company_data']['company_id'])){
+        // get the company team data
+        $company_id = $data['company_data']['company_id']; // get the company ID from the company data
+        $data['company_team'] = $this->Company_model->get_company_team($company_id);
+        }
+    
         // set the title for the page
         $data['title'] = 'About us';
-
+    
         // load common views
         $this->load_common_views('about', $data);
     }
 
-    public function services($id) {
-        // load the Company_model
-        $this->load->model('Company_model');
 
-        // get the company data
-        $data['company_data'] = $this->Company_model->get_company_data();
+    
 
-        // get the services for the requested company
-        // $data['services'] = $this->Company_model->get_company_services($id)->result();
+    public function services($id = 1)
+    {
+    // load the Company_model
+    $this->load->model('Company_model');
 
-        // set the title for the page
-        $data['title'] = 'Services';
+    // get the company data
+    $data['company_data'] = $this->Company_model->get_company_data();
 
-        // load common views
-        $this->load_common_views('services', $data);
+    // get the company services
+    $data['services'] = $this->Company_model->get_company_services($id);
+
+    $data['title'] = 'Services';
+
+    // load common views
+    $this->load_common_views('services', $data);
     }
+
+    
 }
 
 

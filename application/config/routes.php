@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 // Route for the about page
 $route['about'] = 'company/about';
 
-// Route for the service page
-$route['services'] = 'company/services';
+// Route for the services page
+$route['services'] = 'Company/services';
