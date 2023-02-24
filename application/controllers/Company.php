@@ -48,12 +48,9 @@ class Company extends CI_Controller {
         // get the company data
         $data['company_data'] = $this->Company_model->get_company_data();
     
-        // check if company_id exists in the company_data
-        if(isset($data['company_data']['company_id'])){
         // get the company team data
-        $company_id = $data['company_data']['company_id']; // get the company ID from the company data
+        $company_id = isset($data['company_data']['company_id']) ? $data['company_data']['company_id'] : 1; // get the company ID from the company data
         $data['company_team'] = $this->Company_model->get_company_team($company_id);
-        }
     
         // set the title for the page
         $data['title'] = 'About us';
@@ -61,6 +58,7 @@ class Company extends CI_Controller {
         // load common views
         $this->load_common_views('about', $data);
     }
+    
 
 
     

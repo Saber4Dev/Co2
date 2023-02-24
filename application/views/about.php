@@ -111,7 +111,8 @@ print_r($data);
                 <?php for ($i=0; $i<count($company_team); $i++) : ?>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="<?php echo $i * 0.1; ?>s">
                         <div class="team-item rounded overflow-hidden pb-4">
-                            <img class="img-fluid mb-4" src="<?= base_url('assets/img/icon/'. $company_team[$i]['member_photo'] ) ?>" alt="<?php echo $company_team[$i]['name']; ?>">
+
+                            <img class="img-fluid mb-4" src="<?= base_url('assets/img/'. $company_team[$i]['member_photo'] ) ?>" alt="<?php echo $company_team[$i]['name']; ?>">
                             <h5><?php echo $company_team[$i]['name']; ?></h5>
                             <span class="text-primary"><?php echo $company_team[$i]['role']; ?></span>
                             <ul class="team-social">
