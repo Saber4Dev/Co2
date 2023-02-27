@@ -1,5 +1,3 @@
-<?php
-?>
 
 <!-- body contents go here -->
 
@@ -105,7 +103,7 @@
     </div>
     <!-- Features End -->
 
-
+    <?php foreach($company_data as $company): ?>
     <!-- About Start -->
     <div class="container-xxl about my-5">
         <div class="container">
@@ -122,8 +120,8 @@
                     <div class="bg-white rounded-top p-5 mt-lg-5">
                         <p class="fs-5 fw-medium text-primary">About Us</p>
                         <h1 class="display-6 mb-4">The Best Marketing Agency to Improve Your Business</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                            diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                        
+                        <p class="mb-4"><?php echo $company['company_about']; ?></p>
                         <div class="row g-5 pt-2 mb-5">
                             <div class="col-sm-6">
                                 <img class="img-fluid mb-4" src="<?php echo base_url(); ?>/assets/img/icon/icon-5.png" alt="">
@@ -143,7 +141,7 @@
         </div>
     </div>
     <!-- About End -->
-
+    <?php endforeach; ?>
 
     <!-- Video Modal Start -->
     <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -434,58 +432,30 @@
                 <h1 class="display-5 mb-5">Our Expert People Ready to Help You</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item rounded overflow-hidden pb-4">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>/assets/img/team-1.jpg" alt="">
-                        <h5>Alex Robin</h5>
-                        <span class="text-primary">Founder & CEO</span>
-                        <ul class="team-social">
-                            <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
+
+            <!-- Show and loop the member that is avaliable in the tables team -->
+
+            <?php if (!empty($company_team)) : ?>
+                <?php for ($i=0; $i<count($company_team); $i++) : ?>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="<?php echo $i * 0.1; ?>s">
+                        <div class="team-item rounded overflow-hidden pb-4">
+
+                            <img class="img-fluid mb-4" src="<?= base_url('assets/img/'. $company_team[$i]['member_photo'] ) ?>" alt="<?php echo $company_team[$i]['name']; ?>">
+                            <h5><?php echo $company_team[$i]['name']; ?></h5>
+                            <span class="text-primary"><?php echo $company_team[$i]['role']; ?></span>
+                            <ul class="team-social">
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['fb_profile']; ?>"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['twitter_profile']; ?>"><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['instagram_profile']; ?>"><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="btn btn-square" href="<?php echo $company_team[$i]['linkedin_profile']; ?>"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item rounded overflow-hidden pb-4">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>/assets/img/team-2.jpg" alt="">
-                        <h5>Adam Crew</h5>
-                        <span class="text-primary">Co Founder</span>
-                        <ul class="team-social">
-                            <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item rounded overflow-hidden pb-4">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>/assets/img/team-3.jpg" alt="">
-                        <h5>Boris Johnson</h5>
-                        <span class="text-primary">Executive Manager</span>
-                        <ul class="team-social">
-                            <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item rounded overflow-hidden pb-4">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>/assets/img/team-4.jpg" alt="">
-                        <h5>Robert Jordan</h5>
-                        <span class="text-primary">Digital Marketer</span>
-                        <ul class="team-social">
-                            <li><a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                <?php endfor; ?>
+            <?php else: ?>
+                <p class="text-center">No team data available for this company.</p>
+            <?php endif; ?>
+        
             </div>
         </div>
     </div>

@@ -1,15 +1,8 @@
 <?php
 
-
-
-
-
-
-
 // Test the data query that retrieve from model that show the data table "services"
-$data = $this->Company_model->get_company_team(1);
-print_r($data); 
-
+// $data = $this->Company_model->get_company_team(1);
+// print_r($data); 
 
 ?>
 
@@ -103,10 +96,8 @@ print_r($data);
             </div>
             <div class="row g-4">
 
-              <!-- Show and loop the member that is avaliable in the tables team -->
-             
+            <!-- Show and loop the member that is avaliable in the tables team -->
 
-        
             <?php if (!empty($company_team)) : ?>
                 <?php for ($i=0; $i<count($company_team); $i++) : ?>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="<?php echo $i * 0.1; ?>s">
@@ -127,10 +118,7 @@ print_r($data);
             <?php else: ?>
                 <p class="text-center">No team data available for this company.</p>
             <?php endif; ?>
-
         
-
-                
             </div>
         </div>
     </div>
